@@ -5,6 +5,7 @@ import argparse
 __author__ = 'goddess'
 
 def parse_args():
+    #TODO add particles list
     parser = argparse.ArgumentParser(description='Running the particle simulation.')
     parser.add_argument('-o', '--output', help='Output file path', default='')
     parser.add_argument('-p', '--particle', help='Particle name', required=True)
@@ -16,6 +17,8 @@ def parse_args():
 def inject_particle(proc, particle, momentum, meas_num, sleep_time=0.3):
     print "Particle: {0}, p={1}GeV".format(particle, momentum)
     for i in xrange(meas_num):
+        if (i + 1) % 100 == 0:
+            print "{0}/{1} injected".format(i+1, meas_num)
         proc.stdin.write('{0} {1}\n'.format(particle, momentum))
         time.sleep(sleep_time)
         proc.stdin.write('inject\n')
@@ -57,7 +60,7 @@ def main():
         time.sleep(1)
         p.stdin.close()
 
-    print "Parsing the data..."
+    #print "Parsing the data..."
     #parse_output(output_file_name, particle)
     #print "The data table is in file '{0}'".format(particle + '_data.txt')
     print "You can enjoy your full data with the file '{0}':)".format(output_file_name)
