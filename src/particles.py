@@ -24,12 +24,19 @@ class Particle(object):
         self.dphi = kwargs.get('dphi')
 
 class Event(object):
-    def __init__(self, emc_data, ms_data, ms_coords):
+    def __init__(self, emc_data, ms_data, ms_coords, event_txt):
         self.emc_data = emc_data
         self.ms_data = ms_data
         self.ms_coords = ms_coords
+        self.event_txt = event_txt
+
+    def is_main_chain(self):
+        raise NotImplementedError
 
 class K0sEvent(Event):
+    def is_main_chain(self):
+        return self.is_pi_plus_minus()
+
     def is_pi_plus_minus(self):
         return (len(self.ms_data) == 3 or len(self.ms_data) == 2) and len(self.ms_coords) >= 1
 
@@ -38,17 +45,8 @@ class K0sEvent(Event):
             phis = [coords[6] for coords in self.ms_coords]
             max_phi = max(phis)
             max_phi_index = phis.index(max_phi)
-            # if len(self.ms_data) == 2:
-            #     pass
-            if max_phi_index == 0:
-                # Track 1 and 2
-                return (self.ms_data[0:2], self.ms_coords[max_phi_index])
-            elif max_phi_index == 1:
-                # Track 1 and 3
-                return ([self.ms_data[0], self.ms_data[2]], self.ms_coords[max_phi_index])
-            else:
-                # Track 2 and 3
-                return (self.ms_data[1:3], self.ms_coords[max_phi_index])
+            t1, t2 = self.ms_coords[max_phi_index][8]
+            return ([self.ms_data[t1-1], self.ms_data[t2-1]], self.ms_coords[max_phi_index])
         return (self.ms_data, self.ms_coords)
 
     def get_mass(self):
@@ -60,15 +58,18 @@ class K0sEvent(Event):
             m1 = 139.57061 * 10**(-3) #GeV
             m2 = m1
             ms_data, coords = self.get_ms_data_and_coords()
-            p1m = a1 + a2*float(ms_data[0][0])
+            p1m = (1/float(ms_data[0][0]) - a1)/a2
             p1 = p1m * sqrt(float(ms_data[0][2])**2 + 1)
-            p2m = a1 + a2 * float(ms_data[1][0])
+            p2m = (1/float(ms_data[1][0]) - a1)/a2
             p2 = p2m * sqrt(float(ms_data[1][2])**2 + 1)
             phi = float(coords[6])
-            return m1**2 + m2**2 + 2*sqrt((m1**2 + p1**2)*(m2**2+p2**2)) - 2*p1*p2*cos(phi)
+            return sqrt(m1**2 + m2**2 + 2*sqrt((m1**2 + p1**2)*(m2**2+p2**2)) - 2*abs(p1)*abs(p2)*cos(phi))
         return 0
 
 class Pi0Event(Event):
+    def is_main_chain(self):
+        return self.is_gamma_gamma()
+
     def is_gamma_gamma(self):
         return len(self.ms_data) == 0 and len(self.emc_data) == 2
 
@@ -78,21 +79,19 @@ class Pi0Event(Event):
             a2 = 48.52774
             da1 =  2.989187
             da2 =  0.1122469
-            m1 = 0  # GeV
-            m2 = m1
             # emc_data: [ph, x, dx, y, dy, z, dz]
-            p1 = a1 + a2 * float(self.emc_data[0][0])
-            p2 = a1 + a2 * float(self.emc_data[1][0])
-            ax = float(self.emc_data[0][1])
-            bx = float(self.emc_data[1][1])
+            E1 = (float(self.emc_data[0][0]) - a1) / a2
+            E2 = (float(self.emc_data[1][0]) - a1) / a2
+            ax = float(self.emc_data[0][1]) - 10
+            bx = float(self.emc_data[1][1]) - 10
             ay = float(self.emc_data[0][3])
             by = float(self.emc_data[1][3])
             az = float(self.emc_data[0][5])
             bz = float(self.emc_data[1][5])
-            adotb =  ax * bx + ay * by + az * bz
-            absa = sqrt( ax * ax + ay * ay + az * az )
-            absb = sqrt( bx * bx + by * by + bz * bz )
-            phi = acos( adotb / (absa * absb) )
-            return m1 ** 2 + m2 ** 2 + 2 * sqrt((m1 ** 2 + p1 ** 2) * (m2 ** 2 + p2 ** 2)) - 2 * p1 * p2 * cos(phi)
+            adotb = ax * bx + ay * by + az * bz
+            absa = sqrt(ax * ax + ay * ay + az * az)
+            absb = sqrt(bx * bx + by * by + bz * bz)
+            phi = acos(adotb / (absa * absb))
+            return sqrt(2*E1*E2*(1-cos(phi)))
         return 0
 

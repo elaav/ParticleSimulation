@@ -1,0 +1,585 @@
+  *************************************************** 
+  *                                                 * 
+  *               G E A N T   3 . 2 1               * 
+  *                                                 * 
+  *                    C E R N                      * 
+  *                                                 * 
+  *               15/3/94  Geneva  CH               * 
+  *                                                 * 
+  *************************************************** 
+
+ MZSTOR.  ZEBRA table base TAB(0) in /MZCC/ at adr    40000887     2625D77 HEX
+
+ MZSTOR.  Initialize Store  0  in /GCBANK/
+          with Store/Table at absolute adrs    36580989    40000887
+                                        HEX     22E2E7D     2625D77
+                                        HEX    FFCBD16A           0
+                              relative adrs    -3419798           0
+          with     1 Str. in     2 Links in   5300 Low words in 2999970 words.
+          This store has a fence of   16 words.
+
+ MZLOGL.  Set Log Level 0 for store  0
+
+ MZSTOR.  Initialize Store  1  in /PAWC/  
+          with Store/Table at absolute adrs    35580977    36580568
+                                        HEX     21EEC31     22E2CD8
+                                        HEX    FFBC8F1E    FFCBCF61
+                              relative adrs    -4419810    -3420319
+          with     1 Str. in     1 Links in   5001 Low words in  999990 words.
+          This store has a fence of    5 words.
+
+ MZLINK.  Initialize Link Area  /HCBOOK/  for Store  1 NL/NS=    49     4
+
+ MZDIV.   Initialize Division  KUIP Div  in Store  1
+          NW/NWMAX=   50001000000,  MODE/KIND=  1  1
+          Division  3 initialized.
+
+ MZLINK.  Initialize Link Area  /KCLINK/  for Store  1 NL/NS=    20     7
+
+ MZLINK.  Initialize Link Area  /KCVADD/  for Store  1 NL/NS=    16    16
+ ******************************************************
+ *                                                    *
+ *            W E L C O M E    to   P A W             *
+ *                                                    *
+ *       Version 2.14/04      12 January 2004         *
+ *                                                    *
+ ******************************************************
+ Workstation type (?=HELP) <CR>=1 :  **************************************************************
+ *                                                            *
+ *        T e l - A v i v     U n i v e r s i t y             *
+ *        ---------------------------------------             *
+ *                                                            *
+ *    Welcome to the High Energy experimental wonderland      *
+ *                                                            *
+ **************************************************************
+  
+ Do you wish to have some changes in the detector? Y or N
+  
+ (In the following questions CR takes the default = NO)
+ Change the magnetic field? Y or N
+ The iron length is 100 cm.
+ Change the iron length? Y or N
+ The Eloctromagnetic CALorimeter length is 22.4 cm.
+ Change the ECAL length? Y or N
+ The ECAL granularity:
+ The ECAL contains 25x26 BGO Blocks
+ Change the ECAL no. of blocks? Y or N
+
+ MZDIV.   Initialize Division  HIGZ      in Store  1
+          NW/NWMAX=  100001000000,  MODE/KIND=  0  3
+          Division 20 initialized.
+
+ MZLINK.  Initialize Link Area  /HILINK/  for Store  1 NL/NS=    42     2
+
+ MZLINK.  Initialize Link Area  /SICLIN/  for Store  1 NL/NS=     9     0
+ Version 1.29/04 of HIGZ started
+ ***** ERROR in IOPWK : Can't open DISPLAY 
+ ***** ERROR in IACWK : Workstation is not open 
+ ***** ERROR in ISWKWN : Invalid workstation window parameters 
+ ***** ERROR in ISWKVP : Invalid workstation window parameters 
+
+ MZLINK.  Initialize Link Area  /CSKULK/  for Store  1 NL/NS=   500     0
+1*****  GEANT Version  3.21/14 Released on 19032002
+0*****  Correction Cradle Version  0.1400
+
+ MZDIV.   Initialize Division  Constant  in Store  0
+          NW/NWMAX=   20002400000,  MODE/KIND=  1  2
+          Division 20 initialized.
+
+ MZLINK.  Initialize Link Area  /GCLINK/  for Store  0 NL/NS=    20    20
+
+ MZLINK.  Initialize Link Area  /GCSLNK/  for Store  0 NL/NS=   100   100
+ ***** ERROR in ISWKWN : Invalid workstation window parameters 
+ ***** ERROR in ISWKVP : Invalid workstation window parameters 
+0*** GSTMED *** Warning, medium =     8, IFIELD =  -1 and FIELDM = 0.0 is illegal
+0*** GSTMED *** Warning, medium =     9, IFIELD =  -1 and FIELDM = 0.0 is illegal
+0*** GSTMED *** Warning, medium =    10, IFIELD =  -1 and FIELDM = 0.0 is illegal
+0*** GSTMED *** Warning, medium =    11, IFIELD =  -1 and FIELDM = 0.0 is illegal
+0*** GSTMED *** Warning, medium =    12, IFIELD =  -1 and FIELDM = 0.0 is illegal
+0===================================================     MATERIALS      ==================================================
+0MATERIAL                           A         Z     DENSITY  RADIAT L  ABSORP L NMIXT
+
+        1 HYDROGEN                 1.010     1.000     0.071 0.865E+03 0.790E+03   1
+        2 DEUTERIUM                2.010     1.000     0.162 0.757E+03 0.342E+03   1
+        3 HELIUM                   4.000     2.000     0.125 0.755E+03 0.478E+03   1
+        4 LITHIUM                  6.940     3.000     0.534 0.155E+03 0.121E+03   1
+        5 BERILLIUM                9.010     4.000     1.848 0.353E+02 0.367E+02   1
+        6 CARBON                  12.010     6.000     2.265 0.188E+02 0.499E+02   1
+        7 NITROGEN                14.010     7.000     0.808 0.445E+02 0.994E+02   1
+        8 NEON                    20.180    10.000     1.207 0.240E+02 0.749E+02   1
+        9 ALUMINIUM               26.980    13.000     2.700 0.890E+01 0.372E+02   1
+       10 IRON                    55.850    26.000     7.870 0.176E+01 0.171E+02   1
+       11 COPPER                  63.540    29.000     8.960 0.143E+01 0.148E+02   1
+       12 TUNGSTEN               183.850    74.000    19.300 0.350E+00 0.103E+02   1
+       13 LEAD                   207.190    82.000    11.350 0.560E+00 0.185E+02   1
+       14 URANIUM                238.030    92.000    18.950 0.320E+00 0.120E+02   1
+       15 AIR                     14.610     7.300     0.001 0.304E+05 0.675E+05   1
+       16 VACUUM                   0.000     0.000     0.000 0.100E+17 0.100E+17   1
+       18 MYLARS                  12.876     6.456     1.390 0.286E+02 0.700E+02   3     A      Z     W
+                                                                                        12.01   6.00  0.625
+                                                                                         1.01   1.00  0.042
+                                                                                        16.00   8.00  0.333
+       19 DRIFT GAS               35.508    16.085     0.002 0.115E+05 0.679E+05   3     A      Z     W
+                                                                                         1.01   1.00  0.026
+                                                                                        12.01   6.00  0.122
+                                                                                        39.95  18.00  0.851
+       20 G10                     20.544    10.252     1.700 0.166E+02 0.660E+02   3     A      Z     W
+                                                                                        12.01   6.00  0.156
+                                                                                        16.00   8.00  0.416
+                                                                                        28.09  14.00  0.427
+       21 BGO                    198.892    79.171     7.100 0.922E+00 0.292E+02   3     A      Z     W
+                                                                                       208.98  83.00  0.934
+                                                                                        72.59  32.00  0.046
+                                                                                        16.00   8.00  0.020
+
+ MZLINK.  Initialize Link Area  /GCHVIR/  for Store  0 NL/NS=     4     1
+
+ MZLINK.  Initialize Link Area  /GCDINA/  for Store  0 NL/NS=     4     4
+1************************************************************
+ *                                                          *
+ *    G E A N T  Version 3.2114      DATE/TIME 170615/0924  *
+ *                                                          *
+ *                      R U N      1                        *
+ *                                                          *
+ ************************************************************
+ *                                                          *
+ *      Data structure   Date   Time    GVERSN    ZVERSN    *
+ *      --------------   ----   ----    ------    ------    *
+ *                                                          *
+ *           INIT       170615  0924    3.2114     3.79     *
+ *                                                          *
+ *           KINE       170615  0924    3.2114     3.79     *
+ *                                                          *
+ *           HITS       170615  0924    3.2114     3.79     *
+ *                                                          *
+ *           DIGI       170615  0924    3.2114     3.79     *
+ *                                                          *
+ *     Random number seeds:          9876        54321      *
+ *     --------------------                                 *
+ *                                                          *
+ *----------------------------------------------------------*
+ *                                                          *
+ *              Standard TPAR for this run are              *
+ *              ------------------------------              *
+ *                                                          *
+ *  CUTGAM=100.00 keV  CUTELE=  1.00 MeV  CUTNEU= 10.00 MeV *
+ *  CUTHAD= 10.00 MeV  CUTMUO= 10.00 MeV                    *
+ *  BCUTE =100.00 keV  BCUTM =100.00 keV                    *
+ *  DCUTE = 10.00 TeV  DCUTM = 10.00 TeV  PPCUTM= 10.00 MeV *
+ *  IPAIR =        1.  ICOMP =        1.  IPHOT =        1. *
+ *  IPFIS =        0.  IDRAY =        0.  IANNI =        1. *
+ *  IBREM =        1.  IHADR =        1.  IMUNU =        1. *
+ *  IDCAY =        1.  ILOSS =        2.  IMULS =        1. *
+ *  IRAYL =        0.  ILABS =        0.  ISYNC =        0. *
+ *  ISTRA =        0.                                       *
+ *                                                          *
+ *                                                          *
+ ************************************************************
+
+
+  $$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
+  $                                                             $
+  $                        R E A D Y  ?                         $
+  $        ---------------------------------------              $
+  $                                                             $
+  $                         Here we go                          $
+  $                                                             $
+  $$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
+ 
+ 15/06/2017 09.27.43
+ 
+  
+  
+  *********************************************************************
+  *                                                                   *
+  *                         INSTRUCTIONS:                             *
+  *                         ============                              *
+  * Operating this complicated machine, is actually rather simple.    *
+  * First you need to select the type of particle to be               *
+  * injected and to fix its momentum (in GeV/c).                      *
+  * The available particles are listed below.                         *
+  * For example to select 25 GeV/c electron you simply type:          *
+  * "electron 25".                                                    *
+  * Your selection remains valid for all the  next events, until you  *
+  * change the definition. ( The first default is Photon ).           *
+  * Than in order to operate the accelerator type "inject"            *
+  * and... that is all .                                              *
+  *                                                                   *
+  *   List of available particels                                     *
+  *   ===========================                                     *
+  *      photon                                                       *
+  *      electron                                                     *
+  *      positron                                                     *
+  *      muon                                                         *
+  *      mu-plus                                                      *
+  *      neutrino                                                     *
+  *      pi-0                                                         *
+  *      pi-plus                                                      *
+  *      pi-minus                                                     *
+  *      k-long                                                       *
+  *      k-short                                                      *
+  *      k-plus                                                       *
+  *      k-minus                                                      *
+  *      neutron                                                      *
+  *      proton                                                       *
+  *      antiproton                                                   *
+  *      lambda                                                       *
+  *      antilambda                                                   *
+  *      sigma-plus                                                   *
+  *      sigma-minus                                                  *
+  *      sigma-0                                                      *
+  *                 menu  -  prints this list on the screen.          *
+  *                 print -  sends a selected X-window to a printer.  *
+  *                 loto  -  initiate random event generator          *
+  *                                                                   *
+  ********************************************************************
+ ***** ERROR in ISWKWN : Invalid workstation window parameters 
+ ***** ERROR in ISWKVP : Invalid workstation window parameters 
+ ***** ERROR in ISWKWN : Invalid workstation window parameters 
+ ***** ERROR in ISWKVP : Invalid workstation window parameters 
+GEANT > y
+ *** Unknown command: y
+GEANT > k-short 4
+GEANT > 
+
+ =====> HITS IN   ** ELECTRO-MAGNETIC CALORIMETER **
+
+    HIT       X          Y         Z      PULSE HEIGHT
+     1      133.00    -21.00      6.00      5.00
+     2      133.00    -21.00      8.00      3.00
+     3      133.00    -19.00      6.00     45.00
+     4      133.00    -19.00      8.00      5.00
+     5      133.00     -7.00     -8.00     12.00
+     6      133.00     -3.00     -4.00     20.00
+     7      133.00     -3.00     -2.00      3.00
+     8      133.00     11.00     -4.00      2.00
+     9      133.00     13.00     -6.00     42.00
+    10      133.00     13.00     -4.00     19.00
+    11      133.00     15.00     -6.00      7.00
+    12      133.00     15.00     -4.00      3.00
+
+          ELECTROMAGNETIC CLUSTERS
+          ========================
+
+    NO.  PULSE HEIGHT      X              Y              Z        YWIDTH  ZWIDTH
+     1        58.0   133.0 +/-6.5   -19.3 +/-0.5     6.3 +/-0.5     0.9     0.9
+     2        73.0   133.0 +/-6.5    13.2 +/-0.4    -5.3 +/-0.4     1.0     1.1
+     3        23.0   133.0 +/-6.5    -3.0 +/-0.5    -3.7 +/-0.5     0.6     0.9
+     4        12.0   133.0 +/-6.5    -7.0 +/-0.6    -8.0 +/-0.6     0.6     0.6
+inject
+ ***** ERROR in ISWKWN : Invalid workstation window parameters 
+ ***** ERROR in ISWKVP : Invalid workstation window parameters 
+ ***** ERROR in ISWKWN : Invalid workstation window parameters 
+ ***** ERROR in ISWKVP : Invalid workstation window parameters 
+ A new event at
+ 09.27.48 15/06/2017
+GEANT > k-short 4
+GEANT > 
+
+ =====> HITS IN   ** ELECTRO-MAGNETIC CALORIMETER **
+
+    HIT       X          Y         Z      PULSE HEIGHT
+     1      133.00    -13.00     -4.00      3.00
+     2      133.00    -11.00     -6.00      3.00
+     3      133.00    -11.00     -4.00     63.00
+     4      133.00    -11.00     -2.00      4.00
+     5      133.00     -9.00     -4.00      6.00
+     6      133.00     -9.00     -2.00      2.00
+     7      133.00     -5.00     16.00      5.00
+     8      133.00     -5.00     18.00      3.00
+     9      133.00      9.00    -12.00      9.00
+    10      133.00     15.00      4.00      4.00
+    11      133.00     17.00      2.00      6.00
+    12      133.00     17.00      4.00     53.00
+    13      133.00     19.00      4.00      7.00
+
+          ELECTROMAGNETIC CLUSTERS
+          ========================
+
+    NO.  PULSE HEIGHT      X              Y              Z        YWIDTH  ZWIDTH
+     1        81.0   133.0 +/-6.5   -10.9 +/-0.5    -3.9 +/-0.5     0.9     0.9
+     2        78.0   133.0 +/-6.5    14.8 +/-0.4     5.2 +/-0.4     6.8     4.0
+     3         9.0   133.0 +/-6.5     9.0 +/-0.6   -12.0 +/-0.6     0.6     0.6
+inject
+ ***** ERROR in ISWKWN : Invalid workstation window parameters 
+ ***** ERROR in ISWKVP : Invalid workstation window parameters 
+ ***** ERROR in ISWKWN : Invalid workstation window parameters 
+ ***** ERROR in ISWKVP : Invalid workstation window parameters 
+ A new event at
+ 09.27.48 15/06/2017
+GEANT > k-short 4
+GEANT > 
+
+ =====> HITS IN   ** ELECTRO-MAGNETIC CALORIMETER **
+
+    HIT       X          Y         Z      PULSE HEIGHT
+     1      133.00     -9.00     -2.00     11.00
+
+          ELECTROMAGNETIC CLUSTERS
+          ========================
+
+    NO.  PULSE HEIGHT      X              Y              Z        YWIDTH  ZWIDTH
+     1        11.0   133.0 +/-6.5    -9.0 +/-0.6    -2.0 +/-0.6     0.6     0.6
+
+
+ =====>HITS IN DETECTOR ** MAGNETIC SPECTROMETER **
+
+    HIT    CELL       X         Y         Z
+     1      2    22.50000  -2.58952  -1.11376
+     2      2    22.50000  -1.97714   0.35479
+     3      2    22.50000  -1.96052  -0.58826
+     4      3    33.50000  -3.90617   1.61412
+     5      3    33.50000  -2.55317   2.89758
+     6      3    33.50000  -2.56171   2.54118
+     7      4    44.50000  -5.10065  -1.44741
+     8      4    44.50000  -3.84379   3.52494
+     9      4    44.50000  -3.89142   5.86050
+    10      5    55.50000  -6.15078  -1.54418
+    11      5    55.50000  -5.85668   5.35232
+    12      5    55.50000  -5.89441   7.61678
+    13      6    66.50000  -7.00224  -0.41858
+    14      6    66.50000  -8.64077   7.60402
+    15      6    66.50000  -8.68234  10.12356
+    16      7    77.50000  -7.79301  -1.87828
+    17      7    77.50000 -12.20804   8.95464
+    18      7    77.50000 -12.24893  11.47984
+    19      8    88.50000  -8.38888  -2.55010
+    20      8    88.50000 -16.60847  11.53510
+    21      8    88.50000 -16.60253  13.00218
+    22      9    99.50000  -8.84521  -2.35638
+    23      9    99.50000 -21.96377  12.34231
+    24      9    99.50000 -21.95998  13.53159
+    25     10   110.50000  -9.14642  -0.57863
+
+          CHARGED TRACKS RECONSTRUCTION
+          =============================
+
+         
+          Track No.   1
+          =============
+ ******************************************************
+ *  Hit No. *     x       *     y       *      z      *
+ ******************************************************
+ *     1    *    22.50000 *    -2.58952 *    -1.11376 *
+ *     2    *    33.50000 *    -3.90617 *     1.61412 *
+ *     3    *    44.50000 *    -5.10065 *    -1.44741 *
+ *     4    *    55.50000 *    -6.15078 *    -1.54418 *
+ *     5    *    66.50000 *    -7.00224 *    -0.41858 *
+ *     6    *    77.50000 *    -7.79301 *    -1.87828 *
+ *     7    *    88.50000 *    -8.38888 *    -2.55010 *
+ *     8    *    99.50000 *    -8.84521 *    -2.35638 *
+ *     9    *   110.50000 *    -9.14642 *    -0.57863 *
+ ******************************************************
+
+ ***************************************************************************
+ *                             Fit Parameters                              *
+ *     0.595086196E-03       AKAPPA  *  Curvature                          *
+ *         6.129180431       PHI0    *  Angle of tan. at closest approach  *
+ *         0.593865216       D0      *  Distance of closest approach       *
+ *        -0.018603507       TANDIP  *  Tangent of dip angle               *
+ *         0.101732984       Z0      *  Z coordinate  of closest approach  *
+ *         0.268575072       CHISQ   *  Chisquare  for (x,y) fit           *
+ *         0.645330369       CHIZQ   *  Chisquare  for (s,z) fit           *
+ ***************************************************************************
+
+
+ ***************************************************************************
+ *                             Fit Error Matrix  
+ * AKAPPA 0.19559E-09
+ * PHI0   -.26080E-07  0.35992E-05
+ * D0     0.71288E-06  -.10319E-03  0.32421E-02
+ * TANDIP 0.00000E+00  0.00000E+00  0.00000E+00  0.30799E-03
+ * Z0N    0.00000E+00  0.00000E+00  0.00000E+00  -.20582E-01  0.16254E+01
+ *           AKAPPA       PHI0         D0           TANDIP        Z0N
+ ***************************************************************************
+
+
+         
+          Track No.   2
+          =============
+ ******************************************************
+ *  Hit No. *     x       *     y       *      z      *
+ ******************************************************
+ *     1    *    22.50000 *    -1.97714 *     0.35479 *
+ *     2    *    33.50000 *    -2.56171 *     2.54118 *
+ *     3    *    44.50000 *    -3.84379 *     3.52494 *
+ *     4    *    55.50000 *    -5.85668 *     5.35232 *
+ *     5    *    66.50000 *    -8.64077 *     7.60402 *
+ *     6    *    77.50000 *   -12.20804 *     8.95464 *
+ *     7    *    88.50000 *   -16.60847 *    11.53510 *
+ *     8    *    99.50000 *   -21.95998 *    13.53159 *
+ ******************************************************
+
+ ***************************************************************************
+ *                             Fit Parameters                              *
+ *    -0.290886243E-02       AKAPPA  *  Curvature                          *
+ *         0.108908258       PHI0    *  Angle of tan. at closest approach  *
+ *        -2.980265856       D0      *  Distance of closest approach       *
+ *         0.162233189       TANDIP  *  Tangent of dip angle               *
+ *        -3.327627182       Z0      *  Z coordinate  of closest approach  *
+ *         0.050350733       CHISQ   *  Chisquare  for (x,y) fit           *
+ *         0.055750098       CHIZQ   *  Chisquare  for (s,z) fit           *
+ ***************************************************************************
+
+
+ ***************************************************************************
+ *                             Fit Error Matrix  
+ * AKAPPA 0.29021E-09
+ * PHI0   -.35410E-07  0.44523E-05
+ * D0     0.94059E-06  -.12331E-03  0.37280E-02
+ * TANDIP 0.00000E+00  0.00000E+00  0.00000E+00  0.40941E-03
+ * Z0N    0.00000E+00  0.00000E+00  0.00000E+00  -.25242E-01  0.18375E+01
+ *           AKAPPA       PHI0         D0           TANDIP        Z0N
+ ***************************************************************************
+
+
+         
+          Track No.   3
+          =============
+ ******************************************************
+ *  Hit No. *     x       *     y       *      z      *
+ ******************************************************
+ *     1    *    22.50000 *    -1.96052 *    -0.58826 *
+ *     2    *    33.50000 *    -2.55317 *     2.89758 *
+ *     3    *    44.50000 *    -3.89142 *     5.86050 *
+ *     4    *    55.50000 *    -5.89441 *     7.61678 *
+ *     5    *    66.50000 *    -8.68234 *    10.12356 *
+ *     6    *    77.50000 *   -12.24893 *    11.47984 *
+ *     7    *    88.50000 *   -16.60253 *    13.00218 *
+ *     8    *    99.50000 *   -21.96377 *    12.34231 *
+ ******************************************************
+
+ ***************************************************************************
+ *                             Fit Parameters                              *
+ *    -0.287601352E-02       AKAPPA  *  Curvature                          *
+ *         0.104776748       PHI0    *  Angle of tan. at closest approach  *
+ *        -2.884084225       D0      *  Distance of closest approach       *
+ *         0.166146368       TANDIP  *  Tangent of dip angle               *
+ *        -2.405112505       Z0      *  Z coordinate  of closest approach  *
+ *         0.462015957       CHISQ   *  Chisquare  for (x,y) fit           *
+ *         0.973511934       CHIZQ   *  Chisquare  for (s,z) fit           *
+ ***************************************************************************
+
+
+ ***************************************************************************
+ *                             Fit Error Matrix  
+ * AKAPPA 0.29036E-09
+ * PHI0   -.35467E-07  0.44646E-05
+ * D0     0.94143E-06  -.12357E-03  0.37328E-02
+ * TANDIP 0.00000E+00  0.00000E+00  0.00000E+00  0.40951E-03
+ * Z0N    0.00000E+00  0.00000E+00  0.00000E+00  -.25256E-01  0.18389E+01
+ *           AKAPPA       PHI0         D0           TANDIP        Z0N
+ ***************************************************************************
+
+
+
+          CHARGED TRACKS VERTECES RECONSTRUCTION
+          ======================================
+
+
+
+              Tracks    1 and    2
+              ====================
+  Final coordinates of the vertex:
+      X  =   17.65162 +/-    0.30871
+      Y  =   -1.94957 +/-    0.03000
+      Z  =   -0.36299 +/-    0.72016
+  The azimuthal angle between the tracks
+      Phi=    0.14077 +/-    0.00348 Rad
+
+
+
+              Tracks    1 and    3
+              ====================
+  Final coordinates of the vertex:
+      X  =   17.41664 +/-    0.31487
+      Y  =   -1.91813 +/-    0.03064
+      Z  =    0.09464 +/-    0.72294
+  The azimuthal angle between the tracks
+      Phi=    0.13931 +/-    0.00349 Rad
+
+
+
+              Tracks    2 and    3
+              ====================
+  Final coordinates of the vertex:
+      X  =   29.75094 +/-   11.49536
+      Y  =   -2.28033 +/-    0.73339
+      Z  =    1.96355 +/-    1.46304
+  The azimuthal angle between the tracks
+      Phi=    0.00231 +/-    0.09430 Rad
+
+
+inject
+ ***** ERROR in ISWKWN : Invalid workstation window parameters 
+ ***** ERROR in ISWKVP : Invalid workstation window parameters 
+ ***** ERROR in ISWKWN : Invalid workstation window parameters 
+ ***** ERROR in ISWKVP : Invalid workstation window parameters 
+ A new event at
+ 09.27.49 15/06/2017
+GEANT > k-short 4
+GEANT > 
+
+ =====> HITS IN   ** ELECTRO-MAGNETIC CALORIMETER **
+
+    HIT       X          Y         Z      PULSE HEIGHT
+     1      133.00     -5.00     -8.00     16.00
+     2      133.00     -5.00     -6.00      5.00
+     3      133.00     -3.00     -8.00     53.00
+     4      133.00     -3.00     -6.00      8.00
+     5      133.00     -1.00      2.00      2.00
+     6      133.00      1.00      0.00      4.00
+     7      133.00      1.00      2.00     44.00
+     8      133.00      3.00      0.00      3.00
+     9      133.00      3.00      2.00      6.00
+
+          ELECTROMAGNETIC CLUSTERS
+          ========================
+
+    NO.  PULSE HEIGHT      X              Y              Z        YWIDTH  ZWIDTH
+     1        82.0   133.0 +/-6.5    -3.5 +/-0.4    -7.7 +/-0.4     1.0     0.9
+     2        59.0   133.0 +/-6.5     1.2 +/-0.4     1.8 +/-0.4     1.0     0.9
+inject
+ ***** ERROR in ISWKWN : Invalid workstation window parameters 
+ ***** ERROR in ISWKVP : Invalid workstation window parameters 
+ ***** ERROR in ISWKWN : Invalid workstation window parameters 
+ ***** ERROR in ISWKVP : Invalid workstation window parameters 
+ A new event at
+ 09.27.52 15/06/2017
+GEANT > k-short 4
+GEANT > 
+
+ =====> HITS IN   ** ELECTRO-MAGNETIC CALORIMETER **
+
+    HIT       X          Y         Z      PULSE HEIGHT
+     1      133.00    -15.00      0.00      4.00
+     2      133.00    -13.00      0.00     17.00
+     3      133.00     -5.00      6.00      3.00
+     4      133.00     -3.00      4.00      2.00
+     5      133.00     -3.00      6.00     38.00
+     6      133.00     -3.00      8.00      3.00
+     7      133.00     -1.00      2.00     13.00
+     8      133.00      5.00     -6.00      3.00
+     9      133.00      5.00     -4.00      3.00
+    10      133.00      7.00     -6.00     17.00
+    11      133.00      7.00     -4.00     61.00
+    12      133.00      9.00     -4.00      2.00
+
+          ELECTROMAGNETIC CLUSTERS
+          ========================
+
+    NO.  PULSE HEIGHT      X              Y              Z        YWIDTH  ZWIDTH
+     1        86.0   133.0 +/-6.5     6.9 +/-0.4    -4.5 +/-0.4     0.8     1.0
+     2        45.6   133.0 +/-6.5    -3.1 +/-0.5     6.1 +/-0.5     0.8     0.9
+     3        21.0   133.0 +/-6.5   -13.4 +/-0.5     0.0 +/-0.5     1.0     0.6
+     4        13.4   133.0 +/-6.5    -1.1 +/-0.6     2.1 +/-0.6     0.7     0.7
+inject
+ ***** ERROR in ISWKWN : Invalid workstation window parameters 
+ ***** ERROR in ISWKVP : Invalid workstation window parameters 
+ ***** ERROR in ISWKWN : Invalid workstation window parameters 
+ ***** ERROR in ISWKVP : Invalid workstation window parameters 
+ A new event at
+ 09.27.52 15/06/2017
+GEANT > exit
+ Exiting from PAW.
+ Exiting from GEANT.
