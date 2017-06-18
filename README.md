@@ -5,7 +5,7 @@ for TAU lab C easier, and concentrate on the physics.
 ## Pre-installation
 Connect to your TAU linux shell from the "MobaXterm" application
 in https://remoteapp.tau.ac.il.
-Then connect to the physics serveras the following:
+Then connect to the physics server with the following command:
 ```
 $ ssh -X gp.tau.ac.il
 ```
