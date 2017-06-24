@@ -23,11 +23,12 @@ $ python injects.py -h
 ```
 
 ## Examples
+#### Calibration
 In order produce calibration measurements with electron:
 ```
 $ python calibration_injects.py -p electron
 ```
-
+#### General Injects
 In order to inject k0 short:
 ```
 $ python injects.py -p k-short

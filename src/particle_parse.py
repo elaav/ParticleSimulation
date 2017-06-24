@@ -1,7 +1,7 @@
 import argparse
 import re
 
-from src.particles import Event, K0sEvent, Pi0Event
+from particles import Event, K0sEvent, Pi0Event
 
 __author__ = 'goddess'
 
@@ -144,6 +144,37 @@ def get_mass(files_list, particle):
     for event in events:
         mass.append(event.get_mass())
     return mass
+
+def get_k0s_output(files_list, output_file=None):
+    events = []
+    particle = 'k-short'
+    for file_name in files_list:
+        events += (extract_events(file_name, particle))
+    events = [event for event in events if event.is_main_chain()]
+    if not output_file:
+        output_file = "{0}_data.txt".format(particle)
+    with open(output_file, 'w') as fout:
+        fout.write('Event\t\tkappa[cm]\t\tkappa_err[cm]\t\ttandip\t\ttandip_err\t\tphi[rad]\n')
+        i = 1
+        for event in events:
+            ms_data, coords = event.get_ms_data_and_coords()
+            fout.write("{0}\t\t{1}\t\t{2}\t\t{3}\t\t{4}\t\t{5}\n".format(
+                i,
+                ms_data[0][0],
+                ms_data[0][1],
+                ms_data[0][2],
+                ms_data[0][3],
+                coords[6]
+            ))
+            fout.write("{0}\t\t{1}\t\t{2}\t\t{3}\t\t{4}\t\t{5}\n".format(
+                i,
+                ms_data[1][0],
+                ms_data[1][1],
+                ms_data[1][2],
+                ms_data[1][3],
+                coords[6]
+            ))
+            i += 1
 
 if __name__ == "__main__":
     args = parse_args()
