@@ -29,6 +29,7 @@ class Event(object):
         self.ms_data = ms_data
         self.ms_coords = ms_coords
         self.event_txt = event_txt
+        self.initial_p = float(event_txt.split()[0])
 
     def is_main_chain(self):
         raise NotImplementedError
@@ -53,7 +54,7 @@ class K0sEvent(Event):
         if self.is_pi_plus_minus():
             a1 = 9.946917 #cm
             da1 = 8.703541
-            a2 = 523.073125 #cm/GeV
+            a2 = 523.073125/3 #cm/GeV
             da2 = 6.691826
             m1 = 139.57061 * 10**(-3) #GeV
             m2 = m1
@@ -65,6 +66,16 @@ class K0sEvent(Event):
             phi = float(coords[6])
             return sqrt(m1**2 + m2**2 + 2*sqrt((m1**2 + p1**2)*(m2**2+p2**2)) - 2*abs(p1)*abs(p2)*cos(phi))
         return 0
+
+    def get_length(self):
+        if self.is_pi_plus_minus():
+            ms_data, coords = self.get_ms_data_and_coords()
+            return sqrt((float(coords[0]) - 10)**2 + float(coords[2])**2 + float(coords[4])**2)
+        return 0
+
+    def get_lifetime_sec(self):
+        m = 0.498
+        return self.get_length() * m / (self.initial_p * 3 * 10**(-10))
 
 class Pi0Event(Event):
     def is_main_chain(self):
