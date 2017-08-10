@@ -39,7 +39,22 @@ class K0sEvent(Event):
         return self.is_pi_plus_minus()
 
     def is_pi_plus_minus(self):
-        return (len(self.ms_data) == 3 or len(self.ms_data) == 2) and len(self.ms_coords) >= 1
+        return len(self.ms_data) >= 1
+
+    def is_relevant(self):
+        relevant = True
+        data = self.event_txt.split('*  Hit No. *     x       *     y       *      z      *')
+        if len(data) > 1:
+            tracks_data = data[1:]
+            for track in tracks_data:
+                dots = 0
+                for line in track.split('\n')[2:]:
+                    if '******' in line:
+                        break
+                    dots += 1
+                if dots < 6:
+                    relevant = False
+        return (len(self.ms_data) == 3 or len(self.ms_data) == 2) and len(self.ms_coords) >= 1 and relevant
 
     def get_ms_data_and_coords(self):
         if self.is_pi_plus_minus():
@@ -52,9 +67,9 @@ class K0sEvent(Event):
 
     def get_mass(self):
         if self.is_pi_plus_minus():
-            a1 = 9.946917 #cm
+            a1 = 6.0434605 #cm
             da1 = 8.703541
-            a2 = 523.073125/3 #cm/GeV
+            a2 = 531.7830625/3 #cm/GeV
             da2 = 6.691826
             m1 = 139.57061 * 10**(-3) #GeV
             m2 = m1
@@ -75,7 +90,7 @@ class K0sEvent(Event):
 
     def get_lifetime_sec(self):
         m = 0.498
-        return self.get_length() * m / (self.initial_p * 3 * 10**(-10))
+        return self.get_length() * m / (self.initial_p * 3 * 10**10)
 
 class Pi0Event(Event):
     def is_main_chain(self):
