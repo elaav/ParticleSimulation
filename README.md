@@ -15,7 +15,9 @@ $ /var/misc/phys/setup
 ```
 
 ## Installation
-Copy all files in this project to the gimel directory.
+Download files in the src folder to the gimel directory:
+(Make sure the files are directly under the gimel folder, and not in a sub folder)
+
 The main scripts are "calibration_injects.py" and "injects.py",
 and both of them have a very helpful help menu:
 ```
